@@ -5,14 +5,11 @@
 ###
 
 result = []
-ARGV.each do |arg|
-    # skip if not integer
-    next if arg !~ /^-?[0-9]+$/
+integer_args = ARGV.select { |arg| arg =~ /^-?[0-9]+$/ }
 
-    # convert to integer
+integer_args.each do |arg|
     i_arg = arg.to_i
-    
-    # insert result at the right position
+
     is_inserted = false
     i = 0
     l = result.size
